@@ -99,3 +99,23 @@ console.log(second);
 console.log(first);
 // console.log(second);//second is not defined
 
+//!LET TEKI AYNI ISLEMLERI CONST ICIN DE YAPALIM
+
+const bir="Cemal"
+
+console.log(bir);
+
+{
+
+    console.log(bir);
+    const iki="Hasan"
+    console.log(iki);
+    
+
+    
+}
+
+// console.log(iki); 
+
+//! const ve let icin scope (suslu) icnde scope icinde kalir
+
