@@ -362,41 +362,38 @@ console.log(emails)
 /* startsWith(), endsWith() -- case sensitive */
 /* ---------------------------------- */
 
-// startsWith :.. ile başlıyor mu (True , false)
-// endsWith :.. ile bitiyor  mu (True , false)
+// startsWith :.. ile başlıyormu (True , false)
+// endsWith :.. ile bitiyor mu (True , false)
 
-console.log(phone.startsWith("M"));
-console.log(phone.endsWith("0"));
+console.log(phone.startsWith("My"))
+console.log(phone.endsWith("5"))
 
-//! Stringlerde degisiklik
+//!Stringde Değişiklik yapma 
 
-
+/* ---------------------------------- */
+/*         Replace -immutable         */
+/* ---------------------------------- */
 
 let text4 = "Hello World, Who are you World"
-console.log(text4.replace("World","Javascript"));
-console.log(text4);
 
-let newText = text4.replace("World","Javascript")
-console.log(newText);
+console.log(text4.replace("World", "Javascript"))
+console.log(text4)
+
+let newText = text4.replace("World", "Javascript")
+console.log(newText)
 
 let newTextAll = text4.replaceAll("World", "Javascript")
-console.log(newTextAll);
+console.log(newTextAll)
 
 
+/* ---------------------------------- */
+/*                Trim                */
+/* ---------------------------------- */
+//? baş ve sondaki boşlukları kaldırmak için => trim
+let metin3 = "    Clarusway    "
 
-
-let metin3 = " Clarusway   "
-
-console.log(metin3);
-
-console.log(metin3.trim());
-
+console.log(metin3)
+console.log(metin3.trim())
 let yeniMetin3 = metin3.trim()
-console.log(yeniMetin3);
-
-
-
-
-
-
-
+console.log(metin3)
+console.log(yeniMetin3)
