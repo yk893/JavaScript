@@ -357,3 +357,46 @@ let emailPattern = /[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}/g;
 
 let emails = text3.match(emailPattern);
 console.log(emails)
+
+/* ---------------------------------- */
+/* startsWith(), endsWith() -- case sensitive */
+/* ---------------------------------- */
+
+// startsWith :.. ile başlıyor mu (True , false)
+// endsWith :.. ile bitiyor  mu (True , false)
+
+console.log(phone.startsWith("M"));
+console.log(phone.endsWith("0"));
+
+//! Stringlerde degisiklik
+
+
+
+let text4 = "Hello World, Who are you World"
+console.log(text4.replace("World","Javascript"));
+console.log(text4);
+
+let newText = text4.replace("World","Javascript")
+console.log(newText);
+
+let newTextAll = text4.replaceAll("World", "Javascript")
+console.log(newTextAll);
+
+
+
+
+let metin3 = " Clarusway   "
+
+console.log(metin3);
+
+console.log(metin3.trim());
+
+let yeniMetin3 = metin3.trim()
+console.log(yeniMetin3);
+
+
+
+
+
+
+
