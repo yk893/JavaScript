@@ -30,48 +30,47 @@ sayilar.forEach((x) => console.log(x)); //inline arrow function.
 
 const fruit = ["Elma", "Armut", "Muz", "Çilek"];
 
-fruit.forEach((item)=>console.log(item.toUpperCase()))
+fruit.forEach((item) => console.log(item.toUpperCase()));
 
 let yas = [45, 78, 12, 56, 16, 17];
 
-yas.forEach((item)=>{
-    if (item>=18) {
-        console.log("yetişkin")
-    } else {
-        console.log("Çocuk")
-    }
-})
+yas.forEach((item) => {
+  if (item >= 18) {
+    console.log("yetişkin");
+  } else {
+    console.log("Çocuk");
+  }
+});
 
-yas.forEach((item)=>{
-    item >=18  ? console.log("Yetişkin") : console.log("Çocuk") 
-})
+yas.forEach((item) => {
+  item >= 18 ? console.log("Yetişkin") : console.log("Çocuk");
+});
 
-console.clear()
+console.clear();
 /* -------------------------------------------------------------------------- */
 // fonksiyon ile kullanımının ikinci yolu
 
-yas.forEach(yasYazdir)
+yas.forEach(yasYazdir);
 
-function yasYazdir(x){
-    console.log(x)
+function yasYazdir(x) {
+  console.log(x);
 }
 
 // fonksiyon ile kullanımının üçüncü yolu
-yas.forEach(function (x){
-    console.log(x)
-})
+yas.forEach(function (x) {
+  console.log(x);
+});
 
 /* -------------------------------------------------------------------------- */
 //! ForEach 3 parametre alır. 1.zorunlu gibi diğerleri ihtiyaç olduğunda kullanılabilir
 
 //? ikinci parametresi index dir.
 const sebzeler = ["pırasa", "havuç", "ıspanak", "lahana", "kabak"];
-sebzeler.forEach((sebze, index)=>{
-    console.log(`${index + 1} numaralı sebze ${sebze}`)
-})
+sebzeler.forEach((sebze, index) => {
+  console.log(`${index + 1} numaralı sebze ${sebze}`);
+});
 
-
-sebzeler.forEach((item, index, arr)=> console.log(item, index, arr) )
+sebzeler.forEach((item, index, arr) => console.log(item, index, arr));
 
 //!--- Hayati öneme sahip bilgi ----
 //! forEach return yapmaz(void function)
@@ -94,29 +93,28 @@ let toplamSicaklik = 0;
 let sıcakGünler = 0;
 let farkTolami = 0;
 
-let sonuc = sicakliklar.forEach((sicaklik, index, arr)=>{
-    toplamSicaklik+=sicaklik
-    sicaklik > 22 ? sıcakGünler++ : null
+let sonuc = sicakliklar.forEach((sicaklik, index, arr) => {
+  toplamSicaklik += sicaklik;
+  sicaklik > 22 ? sıcakGünler++ : null;
 
-    if (index< arr.length - 1) {
-        const fark = Math.abs(arr[index+1] - sicaklik)
-        farkTolami+= fark
-    }
-})
+  if (index < arr.length - 1) {
+    const fark = Math.abs(arr[index + 1] - sicaklik);
+    farkTolami += fark;
+  }
+});
 
-console.log(toplamSicaklik)
+console.log(toplamSicaklik);
 
-let ort = toplamSicaklik/sicakliklar.length
-console.log(ort.toFixed(2))
+let ort = toplamSicaklik / sicakliklar.length;
+console.log(ort.toFixed(2));
 
-console.log(sıcakGünler)
+console.log(sıcakGünler);
 
-console.log(farkTolami)
+console.log(farkTolami);
 
+console.log(`Sonuç:${sonuc} - undefined çünkü deger döndürmez`);
 
-console.log(`Sonuç:${sonuc} - undefined çünkü deger döndürmez`)
-
-console.clear()
+console.clear();
 
 //* =======================================
 //*            MAP METHOD
@@ -124,15 +122,15 @@ console.clear()
 //!map yapılan değişikliği bir diziye atıp, bunu döndürebilir,  foreach gibi tüketmez. Orjinal diziyi değiştirmez
 
 const numbers = [45, 243, 123, 78, 23, 56];
-const kare = numbers.map((num)=>num * num)
+const kare = numbers.map((num) => num * num);
 
-console.log(kare)
+console.log(kare);
 
 //?-------------- ÖRNEK -------------------
 //? Bir dizideki tüm isimleri BÜYÜK harfe dönüştüren uygulamayı yazınız.
-const isimler=["Tuğba","Nur","Recep","Celal","Bahar","Helen"]
-let isimlerDuzenli = isimler.map((isim)=>isim.toUpperCase())
-console.log(isimlerDuzenli)
+const isimler = ["Tuğba", "Nur", "Recep", "Celal", "Bahar", "Helen"];
+let isimlerDuzenli = isimler.map((isim) => isim.toUpperCase());
+console.log(isimlerDuzenli);
 
 //! tek satırlıkbir kod yazılacaksa { } ve return ihtiyacımız yok
 
@@ -145,44 +143,43 @@ const macBookTL = [90000, 75000, 60000, 40000, 30000];
 const euro = 40;
 const dolar = 38.5;
 
-const macEuro = macBookTL.map((mac)=>mac/euro)
+const macEuro = macBookTL.map((mac) => mac / euro);
 
-console.log(macEuro)
+console.log(macEuro);
 
-const macDolar = macBookTL.map((mac)=>Math.trunc(mac/dolar))
-console.log(macDolar)
+const macDolar = macBookTL.map((mac) => Math.trunc(mac / dolar));
+console.log(macDolar);
 
 //! süslü kullandığımız takdirde "return" yazılmalı
 
-const macKur = macBookTL.map((mac)=>{
-    return Math.trunc(mac/dolar)
-})
+const macKur = macBookTL.map((mac) => {
+  return Math.trunc(mac / dolar);
+});
 
-console.log(macKur)
+console.log(macKur);
 
 //?-------------- ÖRNEK-2 -------------------
 //?Öğrencinin sırasını,notunu ve başarı durumunu döndüren bir işlem
 //? Notu 50 den büyükse başarılı değilse başarısız
 
-const sinavSonuclari = [85, 72, 95, 60 ,45, 47, 88]; 
-
+const sinavSonuclari = [85, 72, 95, 60, 45, 47, 88];
 
 //! map metoduda forEach gibi 3 parametre alabilir
 
-let sonucDeg = sinavSonuclari.map((notu, index, arr)=>{
-    const durum = notu>50 ? "Başarılı" : "Başarısız"
-    // return `${index+1}.öğrencinin notu: ${notu}, Durumu: ${durum} `
-    return [index+1,notu, durum]
-})
+let sonucDeg = sinavSonuclari.map((notu, index, arr) => {
+  const durum = notu > 50 ? "Başarılı" : "Başarısız";
+  // return `${index+1}.öğrencinin notu: ${notu}, Durumu: ${durum} `
+  return [index + 1, notu, durum];
+});
 
-console.log(sonucDeg)
+console.log(sonucDeg);
 /* -------------------------------------------------------------------------- */
-console.clear()
+console.clear();
 
 //* =======================================
 //*            FILTER METHOD
 //* =======================================
-//? belirli bir koşulu sağlayan elemanları seçmek için kullanılır 
+//? belirli bir koşulu sağlayan elemanları seçmek için kullanılır
 //!koşulu sağlayan elemanları içeren yeni bir dizi döner
 
 //?-------------- ÖRNEK -------------------
@@ -191,22 +188,24 @@ const maaslar = [90000, 75000, 60000, 40000, 30000, 10000, 450000];
 
 //? 7 değerli dizi verdik şartı sağlayan 4 değerli bir dizi döndürdü
 
-const buyuk = maaslar.filter((maas)=>maas>50000) 
-console.log(buyuk)
+const buyuk = maaslar.filter((maas) => maas > 50000);
+console.log(buyuk);
 
-const basariliOgrenciler = sinavSonuclari.filter((notu)=>notu>50)
-console.log(basariliOgrenciler)
-console.log(sinavSonuclari)
+const basariliOgrenciler = sinavSonuclari.filter((notu) => notu > 50);
+console.log(basariliOgrenciler);
+console.log(sinavSonuclari);
 
 /* -------------------------------------------------------------------------- */
-const names = ['Ali', 'Mehmet', 'Ayşe', 'Zeynep', 'Seda'];
+const names = ["Ali", "Mehmet", "Ayşe", "Zeynep", "Seda"];
 
-const uzunIsimler = names.filter((isim)=>isim.length>4)
-console.log(uzunIsimler)
+const uzunIsimler = names.filter((isim) => isim.length > 4);
+console.log(uzunIsimler);
 
-const a_icerenIsimler = names.filter((isim)=>isim.toLowerCase().includes("a"))
+const a_icerenIsimler = names.filter((isim) =>
+  isim.toLowerCase().includes("a")
+);
 
-console.log(a_icerenIsimler)
+console.log(a_icerenIsimler);
 
 /* -------------------------------------------------------------------------- */
 //* =======================================
@@ -215,18 +214,17 @@ console.log(a_icerenIsimler)
 
 //? ORNEK: maasi 50000'den az olanları tespit edip %30 zam yapalım ve bunları yeni bir dizide toplayalım (orjinal diziyi degistirmeden)
 
-const fakirler = maaslar.filter((maas)=>maas<50000)
-console.log(fakirler)
+const fakirler = maaslar.filter((maas) => maas < 50000);
+console.log(fakirler);
 
-const dahaAzFakir = fakirler.map((maas)=>maas*1.3)
-console.log(dahaAzFakir)
+const dahaAzFakir = fakirler.map((maas) => maas * 1.3);
+console.log(dahaAzFakir);
 
-const zamli = maaslar.filter((maas)=>maas<50000).map((maas)=>maas*1.3)
-console.log(zamli)
+const zamli = maaslar.filter((maas) => maas < 50000).map((maas) => maas * 1.3);
+console.log(zamli);
 
 // const zamli1 = maaslar.filter((maas)=>maas<50000).map((maas)=>maas*1.3).forEach((maas)=>console.log(maas))
 // console.log(zamli1)
-
 
 //* =======================================
 //*           REDUCE
@@ -241,15 +239,92 @@ console.log(zamli)
 
 const salaries = [40000, 30000, 20000, 100000];
 
-const result = salaries.reduce((toplaMaas,maas)=> toplaMaas + maas)
-console.log(result)
+const result = salaries.reduce((toplaMaas, maas) => toplaMaas + maas);
+console.log(result);
 
 // salaries.reduce((acc ,item)=>{
 
 //     console.log(acc)
-    
+
 // })
 
 //!Reduce tekrar
 
 // every, some findlast find reduce kalan metodlar...
+
+// const dizi = [1,3,5]
+
+// dizi.reduce((acc,val)=>{
+//     console.log("sayaç")
+//     // console.log("akümülatör:",acc)
+//     // console.log("val:",val)
+//     return acc * val
+// })
+
+const sayilarım = [451, 654, 125, 245, 6, 8];
+const carpim = sayilarım.reduce((carpinSonuc, item)=> carpinSonuc * item)
+console.log(carpim)
+
+// ? Stringlerde kullanımı
+
+const kelimeler = ["merhaba", "dünya", "ben", "javascrit", "öğreniyorum"]
+
+const cumle = kelimeler.reduce((acc, currValue)=>{
+    return acc + " " + currValue
+})
+
+console.log(cumle)
+
+
+//* =======================================
+//*               OTHERS
+//* =======================================
+
+//* every()
+//*-------------------------------------------------------
+//? Tum diziyi itere eder ve aldigi callback fonksiyonuna gore
+//? test gerceklestirir.Tum elemanlar icin test basarili ise
+//? true aksi takdirde false deger dondurur.
+//! and e benzer
+
+const ages = [45,15,12,56,14,64,80]
+const check = ages.every((age)=>age>10)
+console.log(check)
+
+const ages1 = [45,15,12,56,14,64,80]
+const check1 = ages1.every((age)=>age<70)
+console.log(check1)
+
+//* some()
+//*-----------------------------------------------------------
+//? Aldigi callback fonksiyonuna gore test gerceklestirir.
+//? En az bir eleman icin bile test basarili ise true aksi
+//? takdirde false deger dondurur.
+// or gibi düşünülebilir
+
+const OverCheck = ages1.some((age)=>age<13)
+console.log(OverCheck)
+
+// FIND(), FINDLAST()
+
+//? Aldigi callback fonksiyonuna gore test gerceklestirir.
+//? Kosulu saglayan ilk dizi elemaninin dondurur.
+//? Eger hic bir eleman kosulu saglamazsa undefined dondurur.
+
+//? yaşı 30dan büyük olan ilk ve son elemanı göster
+
+
+const yaslar = [23,35,12,14,13,45,27,23]
+
+const bigger = yaslar.find((yas)=>yas>30)
+console.log("yaşı 30'dan büyük olan ilk elemanın yaşı:",bigger)
+
+const biggerLast = yaslar.findLast((item)=>item>30)
+console.log("yaşı 30'dan büyük olan son elemanın yaşı:",biggerLast)
+
+//Flat yapısı
+
+const arr1 = [1,2,3,[4,5,6],[7,8,9]]
+// flat yapısı nested arrayi tek boyutlu arraye dönüştürür. 
+const flatArr = arr1.flat()
+console.log(flatArr)
