@@ -20,17 +20,51 @@
 
 //! chain (zincir) yapısı
 
-// fetch ("https://api.github.com/users").then((response)=> console.log(response)
-// )
+// fetch("https://api.github.com/users")
+//   .then((response) => response.json())
+//   .then((veri) => console.log(veri)
+//   );
 
-fetch("https://api.github.com/users").then((res)=>res.json()).then((veri)=>ekranaBastir(veri));
+//!1.seçenek veriler hemen gelsin
+// fetch("https://api.github.com/users")
+//   .then((res) => {
+//     if (!res.ok) {
+//       throw new Error("url de hata var");
+//     }
 
-const ekranaBastir = (data ) =>{
-    data.forEach((person)=>){
-        document.querySelector("section").innerHTML+=`
-        
-        <h1> ${person.login} </h1>
-        
-        `
-    }
-}
+//     return res.json();
+//   })
+//   .then((veri) => ekranaBastir(veri));
+
+//!2. seçenek veriler butona basınca gelsin
+
+const getirData = () => {
+    fetch("https://api.github.com/users")
+      .then((res) => {
+        if (!res.ok) {
+          throw new Error("url de hata var");
+        }
+  
+        return res.json();
+      })
+      .then((veri) => ekranaBastir(veri));
+  };
+  
+  
+  
+  document.querySelector("button").onclick=()=>getirData()
+  
+  const ekranaBastir = (data) => {
+    data.forEach((person) => {
+      document.querySelector("section").innerHTML += `
+  
+  <h1 class="text-primary">${person.login} </h1>
+  
+  <img width="50%" src=${person.avatar_url}/>
+  
+  <h3>${person.node_id} </h3>
+  
+  `;
+    });
+  };
+  
